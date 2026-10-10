@@ -1,0 +1,384 @@
+.section {
+  width: 100%;
+  padding: 80px 24px;
+  background: linear-gradient(to bottom, var(--color-background), rgba(26, 24, 51, 0.4), var(--color-surface));
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(107, 186, 163, 0.2);
+  border: 1px solid rgba(107, 186, 163, 0.4);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  color: var(--color-accent-mint);
+  margin-bottom: 8px;
+}
+
+.badgeText {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-family: var(--font-pichella);
+  font-size: 30px;
+  color: var(--color-accent-mint);
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+.description {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  max-width: 672px;
+  margin-top: 8px;
+}
+
+.statsBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-card);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.statsDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none; 
+}
+
+.filterBar::-webkit-scrollbar {
+  display: none;
+}
+
+.filterBtn {
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  background-color: var(--color-surface-card);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.filterBtn:hover {
+  background-color: var(--color-surface-elevated);
+  color: #fff;
+}
+
+.filterBtnActive {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #4f9f89 100%);
+  color: var(--color-background);
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(107, 186, 163, 0.5);
+  border-color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 24px;
+  border-radius: 24px;
+  background-color: rgba(26, 24, 51, 0.9);
+  border: 1px solid var(--color-border-subtle);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Themes */
+.cardTheme_mint { border-color: rgba(107, 186, 163, 0.4); }
+.cardTheme_mint:hover { border-color: var(--color-secondary); box-shadow: 0 0 25px -5px rgba(107, 186, 163, 0.3); transform: translateY(-4px); }
+.cardTheme_mint .tagPrimary { color: var(--color-accent-mint); }
+.cardTheme_mint .artistNameSmall { color: var(--color-accent-mint); }
+.cardTheme_mint .albumValue { color: var(--color-accent-mint); }
+.cardTheme_mint .footerValue { color: var(--color-secondary); }
+.cardTheme_mint .playBtn { background-color: var(--color-secondary); color: var(--color-background); }
+
+.cardTheme_primary { border-color: rgba(127, 126, 255, 0.4); }
+.cardTheme_primary:hover { border-color: var(--color-primary); box-shadow: 0 0 25px -5px rgba(127, 126, 255, 0.3); transform: translateY(-4px); }
+.cardTheme_primary .tagPrimary { color: var(--color-accent-lilac); }
+.cardTheme_primary .tagSecondary { color: var(--color-primary); }
+.cardTheme_primary .artistNameSmall { color: var(--color-primary); }
+.cardTheme_primary .albumValue { color: var(--color-primary); }
+.cardTheme_primary .footerValue { color: var(--color-primary); }
+.cardTheme_primary .playBtn { background-color: var(--color-primary); color: #fff; }
+
+.cardTheme_secondary { border-color: rgba(107, 186, 163, 0.4); }
+.cardTheme_secondary:hover { border-color: var(--color-secondary); box-shadow: 0 0 25px -5px rgba(107, 186, 163, 0.3); transform: translateY(-4px); }
+.cardTheme_secondary .tagPrimary { color: var(--color-secondary); }
+.cardTheme_secondary .artistNameSmall { color: var(--color-accent-mint); }
+.cardTheme_secondary .albumValue { color: var(--color-secondary); }
+.cardTheme_secondary .footerValue { color: var(--color-secondary); }
+.cardTheme_secondary .playBtn { background-color: var(--color-surface-elevated); color: var(--color-secondary); }
+
+.cardTheme_lilac { border-color: rgba(127, 126, 255, 0.4); }
+.cardTheme_lilac:hover { border-color: var(--color-primary); box-shadow: 0 0 25px -5px rgba(127, 126, 255, 0.3); transform: translateY(-4px); }
+.cardTheme_lilac .tagPrimary { color: var(--color-accent-lilac); }
+.cardTheme_lilac .tagSecondary { color: var(--color-primary); }
+.cardTheme_lilac .artistNameSmall { color: var(--color-accent-lilac); }
+.cardTheme_lilac .albumValue { color: var(--color-primary); }
+.cardTheme_lilac .footerValue { color: var(--color-primary); }
+.cardTheme_lilac .playBtn { background-color: var(--color-surface-elevated); color: var(--color-primary); }
+
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 224px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.artistImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .artistImage {
+  transform: scale(1.05);
+}
+
+.artistFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top right, #1b1c35, #25234d);
+}
+
+.artistFallbackInner {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(to top right, var(--color-accent-lilac), var(--color-primary));
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-headline);
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-background), transparent, transparent);
+}
+
+.countryBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: rgba(12, 11, 23, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.highlightBadgeOverlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: rgba(107, 186, 163, 0.2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tagGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tagPrimary, .tagSecondary {
+  padding: 2px 10px;
+  border-radius: 9999px;
+  background-color: var(--color-surface-elevated);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.artistNameSmall {
+  font-family: var(--font-pichella);
+  font-size: 24px;
+}
+
+.artistNameLarge {
+  font-family: var(--font-headline);
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 2px;
+}
+
+.artistDesc {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.albumInfo {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background-color: rgba(36, 33, 66, 0.7);
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.albumRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.albumLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.albumValue {
+  font-family: var(--font-headline);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tracksValue {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #fff;
+}
+
+.cardFooter {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.footerValue {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.playBtn {
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.playBtn:hover {
+  transform: scale(1.05);
+}
